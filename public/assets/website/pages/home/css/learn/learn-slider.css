@@ -1,0 +1,81 @@
+#learn-carousel .owl-nav .owl-prev {
+    position: absolute;
+    top: 84%;
+    left: 60%;
+    font-size: 5rem;
+}
+
+#learn-carousel .owl-nav .owl-prev::before {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    border: 22px solid #ffffff;
+    border-radius: 30px;
+    left: 0%;
+    right: -34%;
+    bottom: 30%;
+    z-index: -1;
+    box-shadow: 0 2px 4px;
+}
+
+#learn-carousel .owl-nav .owl-next {
+    position: absolute;
+    top: 84%;
+    left: 30%;
+    font-size: 5rem;
+}
+
+#learn-carousel .owl-nav .owl-next::after {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    border: 22px solid #ffffff;
+    border-radius: 30px;
+    left: 0%;
+    right: -34%;
+    bottom: 30%;
+    z-index: -1;
+    box-shadow: 0 2px 4px;
+}
+
+#learn-carousel .owl-nav .owl-next:hover {
+    color: #000000;
+    background: none;
+}
+
+#learn-carousel .owl-nav .owl-prev:hover {
+    color: #000000;
+    background: none;
+}
+
+@media only screen and (max-width: 498px) {
+    #learn-carousel .owl-nav .owl-prev {
+        position: absolute;
+        top: 20%;
+        left: 90%;
+        font-size: 5rem;
+    }
+
+    #learn-carousel .owl-nav .owl-next {
+        position: absolute;
+        top: 20%;
+        left: 2%;
+        font-size: 5rem;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    #learn-carousel .owl-nav .owl-prev {
+        position: absolute;
+        top: 84%;
+        left: 70%;
+        font-size: 5rem;
+    }
+
+    #learn-carousel .owl-nav .owl-next {
+        position: absolute;
+        top: 84%;
+        left: 20%;
+        font-size: 5rem;
+    }
+}

@@ -1,0 +1,75 @@
+#blog-carousel .owl-nav {
+    display: block;
+}
+
+#blog-carousel .owl-nav .owl-prev {
+    position: absolute;
+    top: 92%;
+    left: 80%;
+    font-size: 5rem;
+}
+#blog-carousel .owl-nav .owl-next {
+    position: absolute;
+    top: 92%;
+    left: 20%;
+    font-size: 5rem;
+}
+
+#blog-carousel .owl-nav .owl-prev span {
+    color: #000000;
+}
+
+#blog-carousel .owl-nav .owl-prev::before {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    border: 22px solid #ffffff;
+    border-radius: 30px;
+    left: 0%;
+    right: -34%;
+    bottom: 30%;
+    z-index: -1;
+    box-shadow: 0 2px 4px;
+}
+
+#blog-carousel .owl-nav .owl-next span {
+    color: #000000;
+}
+
+#blog-carousel .owl-nav .owl-next::after {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    border: 22px solid #ffffff;
+    border-radius: 30px;
+    left: 0%;
+    right: -34%;
+    bottom: 30%;
+    z-index: -1;
+    box-shadow: 0 2px 4px;
+}
+
+#blog-carousel .owl-nav .owl-next:hover {
+    color: #000000;
+    background: none;
+}
+
+#blog-carousel .owl-nav .owl-prev:hover {
+    color: #000000;
+    background: none;
+}
+@media only screen and (max-width: 698px) {
+    #blog-carousel .owl-nav .owl-prev {
+        position: absolute;
+        top: 30%;
+        left: 90%;
+        font-size: 5rem;
+    }
+
+    #blog-carousel .owl-nav .owl-next {
+        position: absolute;
+        top: 30%;
+        left: 2%;
+        font-size: 5rem;
+    }
+}
