@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.home');
-});
+// Include website routes
+include __DIR__ . '/website.php';
 
-Route::get('/{view}', function ($view) {
-    return view("$view");
-});
+// Include dashboard routes
+include __DIR__ . '/dashboard.php';
+
 
 
