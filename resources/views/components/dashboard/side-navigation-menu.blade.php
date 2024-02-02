@@ -1,5 +1,5 @@
 <aside
-    class="max-w-62.5 ease-nav-brand z-990 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
+    class="max-w-62.5 ease-nav-brand z-10 fixed inset-y-0 my-4 ml-4 block w-full -translate-x-full flex-wrap items-center justify-between overflow-y-auto rounded-2xl border-0 bg-white p-0 antialiased shadow-none transition-transform duration-200 xl:left-0 xl:translate-x-0 xl:bg-transparent">
     <div class="h-19.5">
         <span sidenav-close></span>
         <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
@@ -14,7 +14,7 @@
     <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
         <ul class="flex flex-col pl-0 mb-0">
             <li
-                class="mt-0.5 w-10/12 mx-auto @if (Route::is('dashboard.home')) {{ 'bg-primaryColor text-white font-semibold rounded-xl' }} @endif">
+                class="mt-0.5 w-10/12 mx-auto @if (Route::is('dashboard.home')) {{ '!bg-primaryColor !text-white !font-semibold !rounded-xl' }} @endif">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                     href="{{ route('dashboard.home') }}">
                     <div
@@ -25,9 +25,9 @@
                 </a>
             </li>
             <li
-                class="mt-0.5 w-10/12 mx-auto @if (Route::is('dashboard.library')) {{ 'bg-primaryColor text-white font-semibold rounded-xl' }} @endif">
+                class="mt-0.5 w-10/12 mx-auto @if (Route::is('dashboard.library.index')) {{ '!bg-primaryColor !text-white !font-semibold !rounded-xl' }} @endif">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-                    href="{{ route('dashboard.library') }}">
+                    href="{{ route('dashboard.library.index') }}">
                     <div
                         class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
                         <i class="fa-solid fa-folder text-primaryColor"></i>
