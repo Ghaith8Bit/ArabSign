@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LibraryTypeEnum;
 use Illuminate\Support\Facades\Route;
 
 /*

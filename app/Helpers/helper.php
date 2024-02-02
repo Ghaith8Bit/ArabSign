@@ -14,7 +14,17 @@ if (! function_exists('generateBreadcrumbs')) {
     {
         $currentRoute = Route::getCurrentRequest()->getRequestUri();
         $segments = explode('/', $currentRoute);
-        array_shift($segments);
+
+        $segments = array_filter($segments);
+
+        $lastSegment = end($segments);
+
+        $lastSegment = strpos($lastSegment, '?') !== false ? strstr($lastSegment, '?', true) : $lastSegment;
+
+        array_pop($segments);
+
+        $segments[] = $lastSegment;
+
         return collect($segments);
     }
 }

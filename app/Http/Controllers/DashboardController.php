@@ -9,10 +9,4 @@ class DashboardController extends Controller
     {
         return view('dashboard.home');
     }
-
-    public function library()
-    {
-
-        return view('dashboard.library');
-    }
 }
