@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <label for="type" class="block mb-2">Image Type:</label>
+                            <label for="type" class="block mb-2">Media Type:</label>
                             <select id="type" name="type" class="w-full p-2 border rounded mb-4">
                                 @foreach (\App\Enums\LibraryTypeEnum::toArray() as $type)
                                     <option value="{{ $type->name }}"
@@ -42,25 +42,25 @@
                                 <div class="flex justify-center mb-4">
                                     <button type="button" id="fileDropzoneBtn" onclick="showFileDropzone(event);"
                                         class="focus:outline-none px-4 py-2 rounded-tl-md rounded-bl-md !bg-blue-500 text-white">Use
-                                        File Dropzone</button>
+                                        Local File</button>
 
                                     <button type="button" id="externalLinkInputBtn"
                                         onclick="showExternalLinkInput(event)"
                                         class="focus:outline-none px-4 py-2 rounded-tr-md rounded-br-md !bg-gray-300 text-gray-800">Use
                                         External Link</button>
                                 </div>
-                                <div class="bg-gray-100 py-4 text-center rounded-lg border-dashed border-2 border-gray-300 hover:border-black transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md"
-                                    id="dropzone">
+                                <div id="dropzone"
+                                    class="bg-gray-100 py-4 text-center rounded-lg border-dashed border-2 border-gray-300 hover:border-black transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-md">
                                     <label for="fileInput" class="cursor-pointer flex flex-col items-center space-y-2">
                                         <svg class="w-16 h-16 text-gray-400" fill="none" viewBox="0 0 24 24"
                                             stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                         </svg>
-                                        <span class="text-gray-600">Drag and drop your files here</span>
+                                        <span class="text-gray-600">Click and choose your files here</span>
                                         <div class="mt-6 text-center" id="fileList"></div>
                                     </label>
-                                    <input type="file" id="fileInput" class="hidden">
+                                    <input type="file" name="file" id="fileInput" class="hidden">
                                 </div>
 
 

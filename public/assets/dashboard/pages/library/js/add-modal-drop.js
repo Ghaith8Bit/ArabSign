@@ -1,39 +1,19 @@
-const dropzone = document.getElementById('dropzone');
 const fileInput = document.getElementById('fileInput');
 const fileList = document.getElementById('fileList');
 
-dropzone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropzone.classList.add('border-blue-500', 'border-2');
-});
-
-dropzone.addEventListener('dragleave', () => {
-    dropzone.classList.remove('border-blue-500', 'border-2');
-});
-
-dropzone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropzone.classList.remove('border-blue-500', 'border-2');
-
-    const files = e.dataTransfer.files;
-    handleFiles(files);
-});
 
 fileInput.addEventListener('change', (e) => {
-    const files = e.target.files;
-    handleFiles(files);
+    dropzone.classList.remove('border-2', 'hover:scale-105', 'hover:shadow-md');
+    const file = e.target.files[0];
+    handleFiles(file);
 });
 
-function handleFiles(files) {
-
-
+function handleFiles(file) {
     fileList.innerHTML = '';
 
-    for (const file of files) {
-        const listItem = document.createElement('div');
-        listItem.textContent = `${file.name} (${formatBytes(file.size)})`;
-        fileList.appendChild(listItem);
-    }
+    const listItem = document.createElement('div');
+    listItem.textContent = `${file.name} (${formatBytes(file.size)})`;
+    fileList.appendChild(listItem);
 }
 
 
@@ -46,24 +26,3 @@ function formatBytes(bytes) {
 
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
-
-dropzone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropzone.classList.add('border-blue-500', 'border-2');
-
-});
-
-dropzone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropzone.classList.remove('border-blue-500', 'border-2');
-
-    const files = e.dataTransfer.files;
-
-    handleFiles(files);
-});
-
-fileInput.addEventListener('change', (e) => {
-    const files = e.target.files;
-
-    handleFiles(files);
-});

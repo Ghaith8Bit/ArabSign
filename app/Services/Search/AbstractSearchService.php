@@ -2,37 +2,34 @@
 
 namespace App\Services\Search;
 
-use Exception;
 use RuntimeException;
 
-use function PHPUnit\Framework\isNull;
-
 /**
- * Class SearchService
+ * Class AbstractSearchService
  *
  * @package App\Services\Search
  */
-class SearchService
+abstract class AbstractSearchService
 {
     /**
      * @var ?string The search query.
      */
-    private ?string $query;
+    protected ?string $query;
 
     /**
      * @var string The search model.
      */
-    private string $model;
+    protected string $model;
 
     /**
      * @var string The search column.
      */
-    private string $column;
+    protected string $column;
 
     /**
      * @var ?int The search paginate number.
      */
-    private ?int $paginate;
+    protected ?int $paginate;
 
     /**
      * Set the search query.
@@ -86,22 +83,8 @@ class SearchService
      * Perform the search based on the query, model, column, and paginate number.
      *
      * @return array An array of the resources and the query.
-     * @throws RuntimeException If the parameters are not set properly.
+     * @throws RuntimeException If the parafmeters are not set properly.
      */
-    public function search() : array
-    {
-        try {
-            // Perform the search based on the query, only if a query is provided
-            ($this->query)
-                ? ($resources = $this->model::where($this->column, 'LIKE', '%' . $this->query . '%')->paginate($this->paginate)->appends(['query' => $this->query]))
-                : (($this->paginate ?? null)
-                    ? ($resources = $this->model::paginate($this->paginate))
-                    : ($resources = $this->model::all()));
-
-            return [$resources, $this->query];
-        } catch (Exception $exception) {
-            throw new RuntimeException($exception);
-        }
-    }
+    abstract public function search() : array;
 
 }

@@ -5,12 +5,12 @@
                 <span
                     class="relative inline-flex items-center rounded-md border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-medium text-gray-400 cursor-not-allowed">Previous</span>
             @else
-                <a href="{{ $paginator->previousPageUrl() }}"
+                <a href="{{ $paginator->previousPageUrl() . (Request::has('redirected') ? '&redirected=' . Request::get('redirected') : '') }}"
                     class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Previous</a>
             @endif
 
             @if ($paginator->hasMorePages())
-                <a href="{{ $paginator->nextPageUrl() }}"
+                <a href="{{ $paginator->nextPageUrl() . (Request::has('redirected') ? '&redirected=' . Request::get('redirected') : '') }}"
                     class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Next</a>
             @else
                 <span

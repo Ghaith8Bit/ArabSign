@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\DTO\ResourceDto;
-use App\Http\Requests\ResourceSearchRequest;
+
+use App\Http\Requests\Resource\ResourceSearchRequest;
+use App\Http\Requests\Resource\ResourceStoreRequest;
 use App\Services\ResourceService;
 use App\Services\Media\LibraryMediaService;
-use App\Http\Requests\ResourceStoreRequest;
-use App\Services\Search\SearchService;
+use App\Services\Search\ResourceSearchService;
 
 class LibraryController extends Controller
 {
-    public function index(ResourceSearchRequest $request, ResourceService $resourceService, SearchService $searchService)
+    public function index(ResourceSearchRequest $request, ResourceService $resourceService, ResourceSearchService $searchService)
     {
         list($resources, $query) = $resourceService->index($request, $searchService);
 
@@ -23,14 +24,14 @@ class LibraryController extends Controller
     {
         try {
             // Create New Resource DTO
-            $resource = new ResourceDto(
+            $resourceDto = new ResourceDto(
                 $request->validated('pre-keyword') . '.' . $request->validated('keyword'),
                 $request->validated('type'),
                 null
             );
 
             // Resource Store Service
-            $resourceService->store($resource, $request, $libraryMediaService);
+            $resourceService->store($resourceDto, $request, $libraryMediaService);
 
             // Return Success
             toastr()->success('تم إنشاء المورد بنجاح.');
@@ -41,7 +42,6 @@ class LibraryController extends Controller
             toastr()->error($exception->getMessage());
             return back()->withInput();
         }
-
     }
 
     public function destroy(string $resourceId, ResourceService $resourceService, LibraryMediaService $libraryMediaService)

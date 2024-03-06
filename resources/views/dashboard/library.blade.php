@@ -23,7 +23,7 @@
         @endforelse
     </div>
 
-    <x-dashboard.pagination :paginator="$resources" />
+    <x-dashboard.library.pagination :paginator="$resources" />
 
 @endsection
 

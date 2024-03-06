@@ -8,11 +8,11 @@
                     <a href="{{ URL::current() }}">
                         @if (!$loop->last)
                             <li class="leading-normal text-sm opacity-50 text-slate-700">
-                                {{ $segment }}
+                                <pre>{{ $segment }}/</pre>
                             </li>
                         @else
                             <li
-                                class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']">
+                                class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600">
                                 {{ $title = $segment }}</li>
                         @endif
                     </a>

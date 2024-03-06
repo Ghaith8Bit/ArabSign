@@ -1,7 +1,19 @@
 @extends('layouts.dashboard')
 
 @section('content')
-dfsuifhdsuifbdsli
+
+@endsection
+
+@section('style')
+
+@endsection
+
+@section('modal')
+
+@endsection
+
+@section('script')
+
 @endsection
 
 

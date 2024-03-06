@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Resource;
 
 use App\Enums\LibraryTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
@@ -42,6 +42,22 @@ class ResourceStoreRequest extends FormRequest
     }
 
     /**
+     * set names for the attributes
+     *
+     * @return array<string, string>
+     */
+    public function attributes() : array
+    {
+        return [
+            'keyword' => 'كلمة مفتاحية',
+            'pre-keyword' => 'كلمة مفتاحية الاساسية',
+            'type' => 'النوع',
+            'file' => 'ملف',
+            'link' => 'الرابط',
+        ];
+    }
+
+    /**
      * Get the validation error messages.
      *
      * @return array<string, string>
@@ -79,7 +95,7 @@ class ResourceStoreRequest extends FormRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        toastr()->error(implode($validator->errors()->all()));
+        toastr()->error(implode('<br>', $validator->errors()->all()));
         throw new ValidationException($validator, back()->withInput());
     }
 

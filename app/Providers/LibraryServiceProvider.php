@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\LibraryMediaService;
+use App\Services\Media\LibraryMediaService;
 use App\Services\ResourceService;
 use Illuminate\Support\ServiceProvider;
 

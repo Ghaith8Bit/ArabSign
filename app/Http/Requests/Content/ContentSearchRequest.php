@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Content;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ResourceSearchRequest extends FormRequest
+class ContentSearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,6 +23,7 @@ class ResourceSearchRequest extends FormRequest
     {
         return [
             'query' => 'nullable|string',
+            'category' => 'nullable|string',
         ];
     }
 }

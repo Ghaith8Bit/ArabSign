@@ -8,11 +8,14 @@
 
     <!-- Navigation Links Container -->
     <div
-        class="nav-links py-6 md:py-0 duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+        class="nav-links md:py-0 duration-500 md:static absolute z-30 bg-white md:min-h-fit min-h-[50vh] left-0 top-[-90%] md:w-auto w-full flex items-center px-5 justify-center">
         <!-- Navigation Links -->
-        <ul class="flex md:flex-row-reverse flex-col md:items-center lg:gap-[4vw] md:gap-[3vw] gap-8">
-            <li><a class="hover:text-gray-800 md:nav-bottom-line" href="#">الرئيسية</a></li>
-            <li><a class="hover:text-gray-800 md:nav-bottom-line" href="#">المحتوى المرئي</a></li>
+        <ul
+            class="flex md:flex-row-reverse flex-col md:items-center lg:gap-[4vw] md:gap-[3vw] gap-8 items-center w-full">
+            <li><a class="hover:text-gray-800 md:nav-bottom-line" href="{{ route('website.home') }}">الرئيسية</a></li>
+            <li><a class="hover:text-gray-800 md:nav-bottom-line" href="{{ route('website.content.index') }}">المحتوى
+                    المرئي</a>
+            </li>
             <li><a class="hover:text-gray-800 md:nav-bottom-line" href="#">تعلم لغة الإشارة</a></li>
             <li><a class="hover:text-gray-800 md:nav-bottom-line" href="#">المقالات</a></li>
             <li><a class="hover:text-gray-800 md:nav-bottom-line" href="#">المدرب</a></li>
