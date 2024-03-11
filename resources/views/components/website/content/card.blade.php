@@ -1,5 +1,6 @@
 <div class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 max-sm:px-16">
-    <a href="#" class="c-card block bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden border">
+    <a href="{{ route('website.content.show', $content->id) }}"
+        class="c-card block bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden border">
         <div class="relative pb-48 overflow-hidden">
             <img class="absolute inset-0 h-full w-full object-cover" src="{{ $content->thumbnail }}"
                 alt="{{ $content->title }}">

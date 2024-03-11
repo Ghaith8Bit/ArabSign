@@ -10,23 +10,28 @@
     <!-- Content Container -->
     <div class="flex flex-col items-center justify-center gap-y-20 my-14 xl:mx-36 lg:mx-10 mx-0">
         <!-- Title and Subtitle -->
-        <div class="flex flex-col items-center gap-3 text-white">
+        <div class="flex flex-col items-center gap-3 text-white py-16">
             <h1 class="text-5xl font-bold -tracking-wide">إشارة عربي</h1>
             <span class="text-xl mt-3">العالم بين يديك</span>
 
             <!-- Description -->
             <div class="flex items-center">
-                <img src="{{ asset('assets/website/pages/home/images/hero/comma-right.svg') }}" class="mb-4 ml-2 w-4"
-                    alt="فاصلة يمينية">
-                <p class="text-xl -tracking-tight">منصة لعرض محتوى مرئي متنوع بلغة الاشارة</p>
-                <img src="{{ asset('assets/website/pages/home/images/hero/comma-left.svg') }}" class="mt-4 mr-2 w-4"
-                    alt="فاصلة يسارية">
+
+                <p class="whitespace-nowrap -tracking-tight">
+                    <img src="{{ asset('assets/website/pages/home/images/hero/comma-right.svg') }}"
+                        class="inline-block w-4 " alt="فاصلة يمينية">
+                    منصة لعرض محتوى مرئي متنوع
+                    بلغة الاشارة
+                    <img src="{{ asset('assets/website/pages/home/images/hero/comma-left.svg') }}"
+                        class="inline-block w-4 " alt="فاصلة يسارية">
+                </p>
+
             </div>
         </div>
 
-        <!-- Roadmap Image -->
+        {{-- <!-- Roadmap Image -->
         <img src="{{ asset('assets/website/pages/home/images/hero/roadmap.svg') }}"
-            alt="خريطة طريق لتوضيح خطة و رؤية المشروع">
+            alt="خريطة طريق لتوضيح خطة و رؤية المشروع"> --}}
     </div>
 
     <!-- Shape Images -->

@@ -8,7 +8,7 @@
     <x-website.content.hero />
 
     <div class="container mx-auto">
-        <div class="flex items-center md:ml-auto md:pr-4 mb-4 justify-between my-6 px-10" style="direction: rtl">
+        <div class="flex items-center mx-auto mb-4 justify-between my-6 lg:px-10 px-8 sm:px-4" style="direction: rtl">
             <x-website.content.action.search :query="$query" />
             <x-website.content.action.filter />
         </div>
@@ -30,10 +30,10 @@
 
 @section('scripts')
     <script src="https://kit.fontawesome.com/5524b61dba.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/website/pages/content/js/filter-modal.js') }}"></script>
-    <script src="{{ asset('assets/website/pages/content/js/change-parameter.js') }}"></script>
-    <script src="{{ asset('assets/website/pages/content/js/select-category.js') }}"></script>
-    <script src="{{ asset('assets/website/pages/content/js/search-bar.js') }}"></script>
+    <script src="{{ asset('assets/website/pages/content/index/js/filter-modal.js') }}"></script>
+    <script src="{{ asset('assets/website/pages/content/index/js/change-parameter.js') }}"></script>
+    <script src="{{ asset('assets/website/pages/content/index/js/select-category.js') }}"></script>
+    <script src="{{ asset('assets/website/pages/content/index/js/search-bar.js') }}"></script>
 @endsection
 
 @section('structured_data')

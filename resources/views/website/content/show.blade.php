@@ -17,14 +17,55 @@
 @endsection
 
 @section('content')
+    <div class="container mt-20 mx-auto justify-center">
+        <div class="flex flex-col gap-20 px-12">
+            <h3 class="text-2xl text-textColor font-bold text-center">{{ $content->title }}</h3>
+            <p class="text-lg">{{ $content->body }}</p>
+            <div id="typeContainer" class="transition-opacity flex items-center justify-center">
+                <div class="hidden w-[90%] h-[512px]" media-type="Image">
 
-    <div class="flex justify-between max-sm:justify-center  max-md:justify-center  max-lg:justify-center ">
+                </div>
+
+                <div class="hidden w-[90%] h-[400px]" media-type="GIF">
+
+                </div>
+
+                <div class="hidden" media-type="Video">
+
+                </div>
+
+                <div class="hidden w-3/4 h-full" media-type="Facebook">
+
+                </div>
+
+                <div class="hidden" media-type="Instagram">
+
+                </div>
+
+                <div class="hidden max-w-[80%]" media-type="YouTube">
+
+                </div>
+
+                <div class="hidden" media-type="TikTok">
+
+                </div>
+
+                <div class="hidden" media-type="X">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {{-- <div class="flex justify-between max-sm:justify-center  max-md:justify-center  max-lg:justify-center ">
         <div
             class="flex flex-col w-2/3 relative mt-6 rounded-xl p-8 max-xlg:p-8 items-center gap-10 max-sm:justify-center  max-md:justify-center  max-lg:justify-center">
             <div
                 class=" w-2/3  flex-col justify-center items-center gap-4 flex text-center text-neutral-700 text-opacity-80 text-xl font-normal px-8 leading-loose">
                 <h3 class="text-neutral-700 text-3xl font-bold" style="width: 28rem">غيث وعامر وابو بشير وابو غالب عم
-                     من
+                    من
                     راميو </h3>
                 <p class="max-sm:w-[26rem] max-md:w-[36rem] max-lg:w-[44rem] w-[50rem] text-start mt-10 max-xl:w-[30rem]">
                     النموذج 1: الربيع ها أنت – أيها الربيع –. أقبلت، فأقبلت معك الحياة بجميع صنوفها وألوانها. النبات ينبت،
@@ -35,18 +76,6 @@
 
                 </p>
             </div>
-            {{-- <div class="w-[35rem] h-80 relative max-sm:w-[26rem] ">
-
-                <iframe class="w-full h-full " src="https://www.youtube.com/embed/0-7IHOXkiV8?si=qthMXUVjIZ66VKDj"></iframe>
-            </div> --}}
-            {{-- <div class="w-[40rem] h-80">
-                <img class="object-contain w-full h-full "
-                    src="https://th.bing.com/th/id/OIP.msyF2ViEjmfF57PMAD8ohAHaC9?w=290&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-                    alt="">
-            </div> --}}
-
-
-
 
 
             <div id="typeContainer">
@@ -275,39 +304,6 @@
     </div>
     <div class="mt-20">
 
-
-
-
-        {{-- <div class="owl-carousel owl-theme mt-20" id="content-carousel">
-            @for ($i = 0; $i < 4; $i++)
-                <div class="w-full sm:w-3/4  lg:w-3/4 xl:w-3/4 p-4 max-sm:px-16 ">
-                    <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-xl overflow-hidden">
-                        <div class="relative pb-48 overflow-hidden">
-                            <img class="absolute inset-0 h-full w-full object-cover"
-                                src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                                alt="">
-                        </div>
-                        <div class="p-4">
-                            <span
-                                class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">title
-                            </span>
-                            <h2 class="mt-2 mb-2  font-bold">منصة تعلم لغة الاشارة </h2>
-                            <p class="text-sm">منصة لتعلم لغة الاشارة للصم والبكم العرب والاجانب </p>
-
-                        </div>
-                        <div class="p-4  text-sm text-gray-700 flex  gap-y-4 justify-evenly">
-                            <span class="flex items-baseline mb-1">
-                                <i class="fa-regular fa-calendar-days ml-2 "></i> 20/20/2020
-                            </span>
-                            <span class="flex  items-baseline mb-1">
-                                <i class="fa-solid fa-eye ml-2 "></i> 5000
-                            </span>
-                        </div>
-                    </a>
-                </div>
-            @endfor
-        </div>
-    </div> --}}
         <div class="flex ">
             <div
                 class="flex flex-col bg-gradient-to-r w- from-secondaryColor to-primaryColor justify-center max-sm:block relative lg:hidden xl:hidden gap-y-6 rounded-tl-[200px]">
@@ -352,120 +348,53 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
-    @endsection
+@endsection
 
-    @section('scripts')
-        {{-- Small Card Text --}}
-        <script src="{{ asset('assets/website/pages/home/js/content/small-card-text.js') }}"></script>
+@section('scripts')
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 
-        {{-- JQuery --}}
-        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
-            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    {{-- Owl Caroussel --}}
+    <script script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        {{-- Owl Caroussel --}}
-        <script script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $("#content-carousel").owlCarousel({
+                items: 1,
+                loop: false,
+                nav: true,
+                dots: false,
+                responsiveClass: true,
+                rtl: true,
 
-        {{-- Owl Caroussel Settings Learn --}}
-        {{-- <script src="{{ asset('assets/website/pages/home/js/learn/learn-carousel.js') }}"></script> --}}
-
-        {{-- Owl Caroussel Settings Blog --}}
-        {{-- <script src="{{ asset('assets/website/pages/home/js/blog/blog-carousel.js') }}"></script> --}}
-        {{-- script for date  --}}
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        {{-- script for modal --}}
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-
-                var cancelButton = document.querySelector('.cancel-button-add');
-                var addModal = document.getElementById('addfilter')
-                var addIcon = document.querySelector('.filter')
-
-                addIcon.addEventListener("click", function() {
-                    addModal.style.display = "block";
-                    window.addEventListener('keydown', addKeydownFunction);
-                });
-
-                cancelButton.addEventListener("click", function() {
-                    addModal.style.display = "none";
-                });
-
-                function addKeydownFunction(e) {
-                    if (e.key == "Escape") {
-                        window.removeEventListener('keydown', addKeydownFunction);
-                        cancelButton.click();
-                    }
-                }
             });
-        </script>
-        {{-- script for rangeViews --}}
-        <script>
-            var minValueInput = document.getElementById('minValue');
-            var maxValueInput = document.getElementById('maxValue');
+        });
+    </script>
 
-            // Function to perform filtering based on the range
-            function filterByRange() {
-                var minValue = parseInt(minValueInput.value);
-                var maxValue = parseInt(maxValueInput.value);
+    <script src="{{ asset('assets/website/pages/content/show/iframe-show.js') }}"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', getResource({!! json_encode($content) !!}));
+    </script>
+@endsection
 
-                // Here you can perform filtering based on the min and max values
-                console.log('Min Value:', minValue);
-                console.log('Max Value:', maxValue);
+@section('structured_data')
 
-                // Example filtering logic: hide/show elements based on the range
-                // Replace this with your actual filtering logic
-            }
+@endsection
 
-            // Event listeners for input events on the input fields
-            minValueInput.addEventListener('input', filterByRange);
-            maxValueInput.addEventListener('input', filterByRange);
-        </script>
-        {{-- script for celenderdate  --}}
-        <script>
-            flatpickr("#startDate", {
-                enableTime: false,
-                dateFormat: "Y-m-d",
-            });
+@section('meta_description', ' This is a special page on my website.')
 
-            flatpickr("#endDate", {
-                enableTime: false,
-                dateFormat: "Y-m-d",
-            });
-        </script>
-        <script src="jquery.min.js"></script>
-        <script src="owlcarousel/owl.carousel.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $("#content-carousel").owlCarousel({
-                    items: 1,
-                    loop: false,
-                    nav: true,
-                    dots: false,
-                    responsiveClass: true,
-                    rtl: true,
+@section('meta_keywords', 'page, keywords, here')
 
-                });
-            });
-        </script>
+@section('og_title', 'My Page Title')
 
-    @endsection
+@section('og_description', 'This is the description for the Open Graph tag.')
 
-    @section('structured_data')
+@section('og_type', 'website')
 
-    @endsection
-
-    @section('meta_description', ' This is a special page on my website.')
-
-    @section('meta_keywords', 'page, keywords, here')
-
-    @section('og_title', 'My Page Title')
-
-    @section('og_description', 'This is the description for the Open Graph tag.')
-
-    @section('og_type', 'website')
-
-    @section('meta_title', 'My Page Title')
+@section('meta_title', 'My Page Title')

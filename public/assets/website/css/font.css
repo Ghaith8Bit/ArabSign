@@ -1,8 +1,8 @@
 @font-face {
-    font-family: "Dubai";
-    src: url("../fonts/DubaiW23-Regular.ttf");
+    font-family: "Janna-LT-Regular";
+    src: url("../fonts/Janna-LT-Regular.ttf");
 }
 
 * {
-    font-family: "Dubai";
+    font-family: "Janna-LT-Regular";
 }

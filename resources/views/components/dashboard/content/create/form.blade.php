@@ -1,5 +1,5 @@
 <form id="createContentForm" method="POST" action="{{ route('dashboard.content.store') }}" enctype="multipart/form-data"
-    class="max-w-full mx-8">
+    class="max-w-full md:mx-8">
     @csrf
     <x-dashboard.content.create.input.resource />
     <hr id="separator" class="h-px my-8 bg-gray-800" style="display: none" />

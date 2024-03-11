@@ -6,8 +6,5 @@ var simplemde = new SimpleMDE({
         unique_id: "body",
         delay: 5000,
     },
-    toolbar: [
-        "bold", "italic", "|",
-        "preview", "|",
-    ]
+    toolbar: []
 });

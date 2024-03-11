@@ -7,6 +7,7 @@ use App\Enums\LibraryTypeEnum;
 use App\Http\Requests\Resource\ResourceSearchRequest;
 use App\Http\Requests\Resource\ResourceStoreRequest;
 use App\Models\Resource;
+use App\Services\Media\ContentMediaService;
 use App\Services\Media\LibraryMediaService;
 use App\Services\Search\ResourceSearchService;
 use Exception;
@@ -68,7 +69,7 @@ class ResourceService
         Resource::create($resourceDto->toArray());
     }
 
-    public function destroy(string $resourceId, LibraryMediaService $libraryMediaService)
+    public function destroy(string $resourceId, LibraryMediaService $libraryMediaService, DashboardContentService $dashboardContentService, ContentMediaService $contentMediaService)
     {
         try {
 
@@ -77,6 +78,10 @@ class ResourceService
 
             if (! $resource) {
                 throw new ModelNotFoundException('المورد الذي تحاول حذفه غير موجود في قاعدة البيانات');
+            }
+
+            foreach ($resource->contents as $content) {
+                $dashboardContentService->destroy($content->id, $contentMediaService);
             }
 
             // Check if type is local
@@ -89,16 +94,8 @@ class ResourceService
                 // Set the disk
                 $libraryMediaService->setDisk('public');
 
-                // Define the url and base url
-                $url = $resource->path;
-                $baseUrl = Storage::disk($libraryMediaService->getDisk())->url('');
-
-                // Remove the prefix from the url
-                if (strpos($url, $baseUrl) === 0) {
-                    $path = substr($url, strlen($baseUrl));
-                } else {
-                    throw new LogicException('هناك مشكلة في الصورة التي تحاول حذفها');
-                }
+                // Get the path
+                $path = $resource->getRawOriginal('path');
 
                 // Set the path
                 $libraryMediaService->setPath($path);

@@ -25,10 +25,11 @@ class ResourceSearchService extends AbstractSearchService
 
             // Use the model class directly here
             $resources = ($query)
-                ? $this->model::where($this->column, 'LIKE', '%' . $query . '%')->paginate($this->paginate)->appends(['query' => $query])
+                ? $this->model::where($this->column, 'LIKE', '%' . $query . '%')->latest()->paginate($this->paginate)->appends(['query' => $query])
                 : (($this->paginate ?? null)
-                    ? $this->model::paginate($this->paginate)
-                    : $this->model::all());
+                    ? $this->model::latest()->paginate($this->paginate)
+                    : $this->model::latest()->get()
+                );
 
             return [$resources, $query];
         } catch (Exception $exception) {

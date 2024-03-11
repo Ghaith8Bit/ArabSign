@@ -107,7 +107,6 @@ function openShowModal(resource) {
                 "rounded-lg",
                 "w-3/4",
                 "justify-center",
-
             );
 
             iframeElement.setAttribute("height", "98%");
@@ -202,20 +201,21 @@ function openShowModal(resource) {
             tiktokIframe.setAttribute("allowtransparency", "true");
             typeContainer.appendChild(tiktokIframe);
             break;
-        // case "X":
-        //     var match = resource.path.match(/\/status\/(\d+)/);
-        //     if (match) {
-        //         var tweetId = match[1];
-        //         var twitframeUrl = `https://twitframe.com/show?url=https%3A%2F%2Ftwitter.com%2FWhotfismick%2Fstatus%2F${tweetId}`;
-        //         var twitterIframe = document.createElement("iframe");
-        //         twitterIframe.src = twitframeUrl;
-        //         twitterIframe.setAttribute("allowfullscreen", "true");
-        //         twitterIframe.setAttribute("frameborder", "0");
-        //         twitterIframe.style.width = "100%";
-        //         twitterIframe.style.height = "500px"; // Adjust the height as needed
-        //         typeContainer.appendChild(twitterIframe);
-        //     }
-        //     break;
+        case "X":
+            var twitterIframe = document.createElement("iframe");
+            var statusId = resource.path.split("/")[5];
+            var embedUrl =
+                "https://twitframe.com/show?url=https://twitter.com/user/status/" +
+                statusId;
+            twitterIframe.src = embedUrl;
+
+            twitterIframe.style.width = "576px";
+            twitterIframe.style.height = "688px";
+
+            twitterIframe.setAttribute("allowfullscreen", "true");
+            twitterIframe.setAttribute("frameborder", "0");
+            typeContainer.appendChild(twitterIframe);
+            break;
 
         default:
             break;

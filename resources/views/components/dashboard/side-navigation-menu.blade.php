@@ -3,8 +3,8 @@
     <div class="h-19.5">
         <span sidenav-close></span>
         <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="{{ route('website.home') }}">
-            <img src="{{ asset('assets/dashboard/images/nav/logo.svg') }}"
-                class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="إشارة عربي" />
+            <img src="{{ asset('assets/dashboard/images/nav/logo.png') }}"
+                class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-12" alt="إشارة عربي" />
             <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Arab Sign</span>
         </a>
     </div>

@@ -1,27 +1,8 @@
-.nav-bottom-line {
-    position: relative;
-}
-
-.nav-bottom-line::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    top: 30px;
-    left: 0;
-    height: 2px;
-    background: #6099bd;
-    transition: 0.3s;
-
-}
-
-.nav-bottom-line:hover:after {
-    width: 100%;
-}
-
 .nav-links {
     transition: top 0.5s ease;
 }
 
 .nav-links.open {
-    top: 10%;
+    top: 96.2px;
+    z-index: 30;
 }

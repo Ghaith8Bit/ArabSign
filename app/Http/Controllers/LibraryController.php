@@ -6,6 +6,8 @@ use App\DTO\ResourceDto;
 
 use App\Http\Requests\Resource\ResourceSearchRequest;
 use App\Http\Requests\Resource\ResourceStoreRequest;
+use App\Services\DashboardContentService;
+use App\Services\Media\ContentMediaService;
 use App\Services\ResourceService;
 use App\Services\Media\LibraryMediaService;
 use App\Services\Search\ResourceSearchService;
@@ -44,12 +46,12 @@ class LibraryController extends Controller
         }
     }
 
-    public function destroy(string $resourceId, ResourceService $resourceService, LibraryMediaService $libraryMediaService)
+    public function destroy(string $resourceId, ResourceService $resourceService, LibraryMediaService $libraryMediaService, DashboardContentService $dashboardContentService, ContentMediaService $contentMediaService)
     {
         try {
 
             // Resource Destroy Service
-            $resourceService->destroy($resourceId, $libraryMediaService);
+            $resourceService->destroy($resourceId, $libraryMediaService, $dashboardContentService, $contentMediaService);
 
             // Return Success
             toastr()->success('تم حذف المورد بنجاح.');

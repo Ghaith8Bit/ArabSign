@@ -19,9 +19,9 @@ class WebsiteController extends Controller
         return view('website.content.index', ['contents' => $contents, 'query' => $query, 'categories' => $categories]);
     }
 
-    public function content_show(ContentSearchRequest $request, WebsiteContentService $contentService, ContentSearchService $searchService)
+    public function content_show(string $id, WebsiteContentService $contentService)
     {
-        list($contents, $query, $categories) = $contentService->index($request, $searchService);
-        return view('website.content.show', ['contents' => $contents, 'query' => $query, 'categories' => $categories]);
+        [$content, $relatedContents] = $contentService->show($id);
+        return view('website.content.show', ['content' => $content, 'relatedContents' => $relatedContents]);
     }
 }
