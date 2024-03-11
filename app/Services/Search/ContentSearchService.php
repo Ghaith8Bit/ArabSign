@@ -13,6 +13,11 @@ use RuntimeException;
 class ContentSearchService extends AbstractSearchService
 {
     /**
+     * @var string The search sort column.
+     */
+    private string $sortColumn;
+
+    /**
      * @var string The search filter model.
      */
     private string $filterModel;
@@ -36,6 +41,18 @@ class ContentSearchService extends AbstractSearchService
      * @var array The search with attribute.
      */
     private array $with = [];
+
+    /**
+     * Set the search sort column.
+     *
+     * @param string $sortColumn
+     * @return $this
+     */
+    public function setSortColumn(string $sortColumn) : self
+    {
+        $this->sortColumn = $sortColumn;
+        return $this;
+    }
 
     /**
      * Set the search relation model.
@@ -106,23 +123,43 @@ class ContentSearchService extends AbstractSearchService
     public function search() : array
     {
         try {
-            //TODO: MAKE THE QUERY AS ARRAY AND EXECUTE THE SEARCH ON ARRAY OF KEYWORDS NOT SINGLE WORD
             $query = $this->query;
 
             $filterIds = ($this->filterIds)
                 ? $this->filterModel::whereIn('id', $this->filterIds)->pluck('id')
                 : $this->filterModel::all()->pluck('id');
 
+            $contentIds = [];
+
             // Search in content_keywords table for matching keywords and get distinct content_ids
-            $contentIds = ($query)
-                ? $this->relationModel::where($this->column, 'LIKE', "%{$query}%")->distinct('content_id')->pluck('content_id')
-                : $this->relationModel::distinct('content_id')->pluck('content_id');
+            if ($query) {
+                $keywords = explode(' ', $query);
+                $keywords = array_filter($keywords);
+
+                $matchesCount = [];
+
+                foreach ($keywords as $keyword) {
+                    $matchingContentIds = $this->relationModel::where($this->column, 'LIKE', "%{$keyword}%")->distinct('content_id')->pluck('content_id');
+                    foreach ($matchingContentIds as $contentId) {
+                        if (! isset($matchesCount[$contentId])) {
+                            $matchesCount[$contentId] = 1;
+                        } else {
+                            $matchesCount[$contentId]++;
+                        }
+                    }
+                }
+                arsort($matchesCount);
+                $contentIds = array_keys($matchesCount);
+            } else {
+                $contentIds = $this->relationModel::distinct('content_id')->pluck('content_id');
+            }
 
             // Use the model class directly here to retrieve content records based on content_ids
             $resources = ($query)
                 ? $this->model::with($this->with)
                     ->whereIn('id', $contentIds)
                     ->whereIn($this->filterKey, $filterIds)
+                    ->orderByRaw('FIELD(id, ' . implode(',', $contentIds) . ')')
                     ->paginate($this->paginate)
                     ->appends(['query' => $query])
                 : ($this->paginate
@@ -130,9 +167,11 @@ class ContentSearchService extends AbstractSearchService
                         ->whereIn('id', $contentIds)
                         ->whereIn($this->filterKey, $filterIds)
                         ->paginate($this->paginate)
+                        ->sortByDesc($this->sortColumn)
                     : $this->model::with($this->with)
                         ->whereIn('id', $contentIds)
                         ->whereIn($this->filterKey, $filterIds)
+                        ->sortByDesc($this->sortColumn)
                         ->get()
                 );
 

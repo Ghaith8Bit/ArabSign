@@ -11,14 +11,13 @@ use App\Models\Content;
 use App\Models\ContentKeyword;
 use App\Services\Media\ContentMediaService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Storage;
 use LogicException;
 
 class DashboardContentService
 {
     public function index()
     {
-        return Content::paginate(10);
+        return Content::latest()->paginate(10);
     }
 
     public function create()
@@ -142,16 +141,8 @@ class DashboardContentService
         // Set the disk
         $contentMediaService->setDisk('public');
 
-        // Define the url and base url
-        $url = $content->thumbnail;
-        $baseUrl = Storage::disk($contentMediaService->getDisk())->url('');
-
-        // Remove the prefix from the url
-        if (strpos($url, $baseUrl) === 0) {
-            $path = substr($url, strlen($baseUrl));
-        } else {
-            throw new LogicException('هناك مشكلة في الصورة التي تحاول حذفها');
-        }
+        // Get the path
+        $path = $content->getRawOriginal('thumbnail');
 
         // Set the path
         $contentMediaService->setPath($path);

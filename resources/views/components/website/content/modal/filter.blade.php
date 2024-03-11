@@ -3,9 +3,9 @@
     <div class="relative z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
             <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-                <div class="flex min-h-full items-center justify-center text-center sm:items-center pl-9 pr-5 ">
+                <div class="flex min-h-full items-center justify-center text-center pl-9 pr-5 ">
                     <div
-                        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                        class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all my-8 w-full max-w-lg">
                         <form id="filterForm" action="{{ route('website.content.index') }}" method="GET"
                             onsubmit="changeCategoryParameter(document.getElementById('category').value);return false">
                             <div class="modal-content bg-white p-4 shadow-md rounded-md">

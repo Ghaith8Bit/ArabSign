@@ -1,7 +1,7 @@
 <footer
     class="mt-14 bg-gradient-to-b from-primaryColor to-secondaryColor w-full h-4/5 relative max-md:rounded-none rounded-tl-[200px] ">
-    <img src="{{ asset('assets/website/images/footer/big-ellipse.svg') }}" class="absolute right-[70%] hidden md:block"
-        alt="شكل دائري كبير">
+    {{-- <img src="{{ asset('assets/website/images/footer/big-ellipse.svg') }}" class="absolute right-[70%] hidden md:block"
+        alt="شكل دائري كبير"> --}}
     <img src="{{ asset('assets/website/images/footer/small-polygon.svg') }}"
         class="absolute right-[60%] bottom-[12%] hidden md:block" alt="مضلع سداسي صغير">
     <img src="{{ asset('assets/website/images/footer/small-polygon.svg') }}"

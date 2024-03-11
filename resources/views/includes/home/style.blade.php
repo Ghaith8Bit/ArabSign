@@ -4,8 +4,5 @@
 {{-- Layout css --}}
 <link rel="stylesheet" href="{{ asset('assets/website/css/font.css') }}">
 
-{{-- Navbar hover line css --}}
+{{-- Navbar css --}}
 <link rel="stylesheet" href="{{ asset('assets/website/css/nav.css') }}">
-
-{{-- Scroll bar css --}}
-<link rel="stylesheet" href="{{ asset('assets/website/css/scroll-bar.css') }}">

@@ -5,6 +5,6 @@
     </span>
 
     <input id="searchField" type="text" name="query" value="{{ $query }}"
-        class="pl-10 text-sm r w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-secondaryColor focus:outline-none focus:transition-shadow"
+        class="md:pl-10 pl-2 text-sm r w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-secondaryColor focus:outline-none focus:transition-shadow"
         placeholder="ابحث عن محتوى...">
 </div>

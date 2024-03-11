@@ -1,5 +1,5 @@
 <section
-    class="bg-gradient-to-r from-secondaryColor to-primaryColor flex flex-row  justify-center items-center relative -z-10">
+    class="bg-gradient-to-r from-secondaryColor to-primaryColor flex flex-row py-6 justify-center items-center relative -z-10">
     <!-- Polygon Images -->
     <img src="{{ asset('assets/website/pages/home/images/hero/polygon1.svg') }}"
         class="absolute right-0 top-0 hidden xl:block lg:block md:block" alt="شكل مضلع">
