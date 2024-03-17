@@ -61,4 +61,12 @@ class Content extends Model
     {
         return Storage::disk('public')->url($value);
     }
+
+    /**
+     * Increment the views count by one.
+     */
+    public function incrementViews()
+    {
+        $this->increment('views');
+    }
 }

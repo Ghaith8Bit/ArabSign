@@ -26,7 +26,7 @@
 @section('content')
     <x-website.home.hero />
     <x-website.home.about />
-    <x-website.home.content />
+    <x-website.home.content :contents="$contents" />
     <x-website.home.learn />
     <x-website.home.blog />
     <x-website.home.course />
@@ -50,6 +50,9 @@
 
     {{-- Owl Caroussel Settings Blog --}}
     <script src="{{ asset('assets/website/pages/home/js/blog/blog-carousel.js') }}"></script>
+
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/5524b61dba.js" crossorigin="anonymous"></script>
 
 @endsection
 

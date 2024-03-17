@@ -141,7 +141,7 @@ class ContentSearchService extends AbstractSearchService
                 foreach ($keywords as $keyword) {
                     $matchingContentIds = $this->relationModel::where($this->column, 'LIKE', "%{$keyword}%")->distinct('content_id')->pluck('content_id');
                     foreach ($matchingContentIds as $contentId) {
-                        if (! isset($matchesCount[$contentId])) {
+                        if (! isset ($matchesCount[$contentId])) {
                             $matchesCount[$contentId] = 1;
                         } else {
                             $matchesCount[$contentId]++;
@@ -166,8 +166,8 @@ class ContentSearchService extends AbstractSearchService
                     ? $this->model::with($this->with)
                         ->whereIn('id', $contentIds)
                         ->whereIn($this->filterKey, $filterIds)
+                        ->orderByRaw($this->sortColumn . ' DESC')
                         ->paginate($this->paginate)
-                        ->sortByDesc($this->sortColumn)
                     : $this->model::with($this->with)
                         ->whereIn('id', $contentIds)
                         ->whereIn($this->filterKey, $filterIds)
