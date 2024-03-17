@@ -2,10 +2,7 @@
  <meta charset="UTF-8">
 
  <!-- Viewport for Responsive Design -->
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <!-- Content Type and Charset -->
- <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 
  <!-- Favicon -->
  <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">

@@ -38,6 +38,13 @@ class WebsiteContentService
     {
         $content = Content::with(['keywords', 'resource'])->find($id);
 
+        // Check if the flag indicating the page visit exists in the session
+        if (! session()->has('visited_content_' . $id)) {
+            // Increment the views count and store the flag in the session
+            $content->incrementViews();
+            session(['visited_content_' . $id => true]);
+        }
+
         // Get keywords of the current content
         $keywords = $content->keywords->pluck('keyword')->toArray();
 
@@ -54,10 +61,11 @@ class WebsiteContentService
             ->selectRaw('COUNT(content_keywords.keyword) as matching_keywords_count')
             ->join('content_keywords', 'contents.id', '=', 'content_keywords.content_id')
             ->whereIn('contents.id', $relatedContentIds)
-            ->groupBy('contents.id')
+            ->groupBy('contents.id', 'contents.title', 'contents.body', 'contents.resource_id', 'contents.category_id', 'contents.thumbnail', 'contents.views', 'contents.published_at', 'contents.created_at', 'contents.updated_at')
             ->orderByDesc('matching_keywords_count')
             ->orderByRaw('CASE WHEN contents.category_id = ? THEN 0 ELSE 1 END', [$content->category_id])
             ->get();
+
 
         return [$content, $relatedContents];
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Content\ContentSearchRequest;
+use App\Models\Content;
 use App\Services\Search\ContentSearchService;
 use App\Services\WebsiteContentService;
 
@@ -10,7 +11,8 @@ class WebsiteController extends Controller
 {
     public function home()
     {
-        return view('website.home');
+        $contents = Content::latest()->take(4)->get();
+        return view('website.home', ['contents' => $contents]);
     }
 
     public function content_index(ContentSearchRequest $request, WebsiteContentService $contentService, ContentSearchService $searchService)

@@ -11,7 +11,7 @@
     @include('includes.home.style')
 </head>
 
-<body class="text-textColor overflow-x-hidden scrollbar-blue-darkblue m-0 b-0">
+<body class="text-textColor overflow-x-hidden scrollbar-blue-darkblue m-0 b-0 antialiased">
     <header>
         <x-website.navigation-menu />
     </header>
