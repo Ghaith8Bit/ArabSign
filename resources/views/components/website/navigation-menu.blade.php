@@ -16,10 +16,10 @@
             <li><a class="{{ Route::is('website.content.index') || Route::is('website.content.show') ? 'text-secondaryColor/90 font-bold cursor-default' : 'hover:text-textColor' }}"
                     href="{{ route('website.content.index') }}">المحتوى
                     المرئي</a></li>
-            <li><a class="hover:text-gray-800" href="#">تعلم لغة الإشارة</a></li>
-            <li><a class="hover:text-gray-800" href="#">المقالات</a></li>
-            <li><a class="hover:text-gray-800" href="#">المدرب</a></li>
-            <li><a class="hover:text-gray-800" href="#">من نحن</a></li>
+            {{-- <li><a class="hover:text-gray-800" href="#">تعلم لغة الإشارة</a></li> --}}
+            {{-- <li><a class="hover:text-gray-800" href="#">المقالات</a></li> --}}
+            {{-- <li><a class="hover:text-gray-800" href="#">المدرب</a></li> --}}
+            {{-- <li><a class="hover:text-gray-800" href="#">من نحن</a></li> --}}
         </ul>
     </div>
 

@@ -27,9 +27,9 @@
     <x-website.home.hero />
     <x-website.home.about />
     <x-website.home.content :contents="$contents" />
-    <x-website.home.learn />
-    <x-website.home.blog />
-    <x-website.home.course />
+    {{-- <x-website.home.learn /> --}}
+    {{-- <x-website.home.blog /> --}}
+    {{-- <x-website.home.course /> --}}
 @endsection
 
 @section('scripts')
